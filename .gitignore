@@ -1,0 +1,12 @@
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local data created by running the app
+expenses.db
+expenses.db-journal
+
+# Local scratch artifact; it is not part of the project
+scratch_script_found.txt

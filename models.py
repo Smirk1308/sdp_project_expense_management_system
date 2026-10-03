@@ -1,0 +1,41 @@
+"""The four simple tables used by the application."""
+
+CREATE_USERS_TABLE = """
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE
+)
+"""
+
+CREATE_CATEGORIES_TABLE = """
+CREATE TABLE IF NOT EXISTS categories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL,
+    UNIQUE (name, type)
+)
+"""
+
+CREATE_EXPENSES_TABLE = """
+CREATE TABLE IF NOT EXISTS expenses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL DEFAULT 1,
+    title TEXT NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT NOT NULL,
+    expense_date TEXT NOT NULL,
+    note TEXT NOT NULL DEFAULT ''
+)
+"""
+
+CREATE_INCOMES_TABLE = """
+CREATE TABLE IF NOT EXISTS incomes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT NOT NULL,
+    income_date TEXT NOT NULL,
+    note TEXT NOT NULL DEFAULT ''
+)
+"""
